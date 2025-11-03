@@ -80,7 +80,7 @@ updateStock(products, "mouse:15,monitor:20");
 
 **說明：**
 
-這段程式是為了更新商品陣列中商品的庫存數量，先將將傳入的updates字串（格式為 "商品名:庫存,商品名:庫存"）用split()分割，再轉換成物件updatesObj，然後用 : 分割每組名稱與庫存，建立updatesObj儲存更新資料，再來針對products陣列中的每個商品，如果商品名稱存在於updatesObj中，則將其庫存更新為新的數量，以及使用console.log()印出更新後每個商品的庫存狀況，最後呼叫函數執行updateStock。
+承接上題(1b)，這段程式是為了更新商品陣列中商品的庫存數量，先將將傳入的updates字串（格式為 "商品名:庫存,商品名:庫存"）用split()分割，再轉換成物件updatesObj，然後用 : 分割每組名稱與庫存，建立updatesObj儲存更新資料，再來針對products陣列中的每個商品，如果商品名稱存在於updatesObj中，則將其庫存更新為新的數量，以及使用console.log()印出更新後每個商品的庫存狀況，最後呼叫函數執行updateStock。
 
 
 **執行結果：**
