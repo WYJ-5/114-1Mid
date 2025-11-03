@@ -30,12 +30,13 @@ function getLowStock(products) {
     .map(item => item.name);
 }
 
+// 呼叫lowStockItems函式並顯示結果
 const lowStockItems = getLowStock(products);
 console.log("庫存少於 10 的項目：", lowStockItems);
 
 
 
-// 批次更新商品庫存
+// 跟新商品庫存
 function updateStock(products, updates) {
   const updatesObj = {};
   updates.split(",").forEach(pair => {

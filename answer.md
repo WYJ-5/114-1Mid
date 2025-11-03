@@ -37,7 +37,7 @@ console.log("庫存少於 10 的項目：", lowStockItems);
 
 **說明：**
 
-這段程式是為了找出庫存少於10的商品名稱，先用.filter()篩選出stock < 10的商品，然後用.map()取得這些商品的name，最後呼叫函式回傳結果，並用console.log()輸出。
+這段程式是為了找出庫存少於10的商品名稱，先用.filter()篩選出庫存 < 10的商品，然後用.map()取得這些商品的名稱，最後呼叫函式回傳結果，並用console.log()依照規定輸出結果。
 
 **執行結果：**
 
@@ -80,7 +80,7 @@ updateStock(products, "mouse:15,monitor:20");
 
 **說明：**
 
-這段程式是為了更新商品陣列中商品的庫存數量，先將將傳入的 updates 字串（格式為 "商品名:庫存,商品名:庫存"）用 split() 分割後，轉換成一個物件 updatesObj，然後用 : 分割每組名稱與庫存，建立 updatesObj 儲存更新資料，再來針對products陣列中的每個商品，如果商品名稱存在於updatesObj中，則將其庫存更新為新的數量，以及使用console.log()印出更新後每個商品的庫存狀況，最後呼叫函數執行updateStock。
+這段程式是為了更新商品陣列中商品的庫存數量，先將將傳入的updates字串（格式為 "商品名:庫存,商品名:庫存"）用split()分割，再轉換成物件updatesObj，然後用 : 分割每組名稱與庫存，建立updatesObj儲存更新資料，再來針對products陣列中的每個商品，如果商品名稱存在於updatesObj中，則將其庫存更新為新的數量，以及使用console.log()印出更新後每個商品的庫存狀況，最後呼叫函數執行updateStock。
 
 
 **執行結果：**
@@ -113,15 +113,7 @@ Ans:
 
 **說明：**
 
-這段程式是為了根據請求的URL，回傳對應的回應內容，
-
-程式中使用switch判斷請求的url。
-
-  - 若url為/，回傳"index.html 輸出部分"。
-
-  - 若url為/calculator，回傳"index2.html 輸出的部分"。
-
-  - 若url為其他(例如/hi)，回傳"error.html 輸出的部分"
+這段程式是為了根據請求的URL，回傳對應的回應內容，程式中使用switch判斷請求的url，如果url為/，網頁裡要出現"index.html 輸出部分"的文字;如果url為/calculator，網頁裡要出現"index2.html 輸出的部分"的文字;如果若url為其他(例如/hi)，網頁裡要出現"error.html 輸出的部分"的文字。
 
 **執行結果：**
 
@@ -157,14 +149,7 @@ switch(req.url) {
 ```
 
 **說明：**
-這段程式是為了根據請求的網址（URL），回傳對應的回應內容，
-
-程式中使用switch 判斷請求的url。
-
-  - 若url為/，回傳index.ejs畫面。
-
-  - 若url為/calculator，回傳index2.ejs畫面。
-
+這段程式是為了根據請求的URL，回傳對應的回應內容，程式中使用switch 判斷請求的url，如果url為/，網頁要是index.ejs的畫面，如果url為/calculator，網頁要是index2.ejs的畫面。
 
 
 **執行結果：**
@@ -208,7 +193,7 @@ fs.readFile(staticFilePath, (err, content) => {
 ```
 
 **說明：**
-這段程式為嘗試讀取靜態資源並處理錯誤請求，先嘗試讀取靜態資源，如果讀取失敗，代表使用者請求的路徑不存在，則**讀取 index3.ejs 作為 404 畫面**，再將index3.ejs渲染成HTML後回傳給使用者，HTTP狀態碼設定為 404，如果靜態資源讀取成功，直接回傳內容給使用者，HTTP狀態碼為 200。
+這段程式為試著讀取靜態資源並處理錯誤請求，先試著讀取靜態資源，如果讀取失敗，代表使用者請求的路徑不存在，則**讀取 index3.ejs 作為 404 畫面**，再將index3.ejs渲染成HTML後回傳給使用者，HTTP狀態碼設定為 404，如果靜態資源讀取成功，直接回傳內容給使用者，HTTP狀態碼為 200。
 
 
 **執行結果：**
