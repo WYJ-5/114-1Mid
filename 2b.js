@@ -44,11 +44,18 @@ http.createServer((req, res) => {
 
   // Switch根據不同路由要寫的部分
 
+  if (req.url.endsWith('.css') || req.url.endsWith('.js') || req.url.endsWith('.png') || req.url.endsWith('.jpg')) {
+  fileOtherFile = req.url;  // 靜態資源路徑
+  }
 
-
-
-
-  
+  switch(req.url) {
+  case '/':
+    filePath = '/index.ejs';
+    break;
+  case '/calculator':
+    filePath = '/index2.ejs';
+    break;
+  }
 
   // ==========================================
   // 步驟 2: 判斷文件類型（提取副檔名）
@@ -173,19 +180,16 @@ http.createServer((req, res) => {
 
       // 檢查靜態文件是否讀取失敗
       if (err) {
-        // ------------------------------------------
-        // 靜態文件不存在 → 顯示 404 錯誤頁面
-        // ------------------------------------------
-
-        // 當靜態資源載入失敗時（例如：請求不存在的文件或網址）
-        // 不直接回傳錯誤訊息，而是顯示友善的 404 錯誤頁面（index3.ejs）
-
-        // 設定 HTTP 狀態碼 404（找不到資源）
-        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
-
-        // 向客戶端發送 404 錯誤訊息
-        res.end('404 - 找不到文件：');
-
+        fs.readFile('./index3.ejs', 'utf8', (err2, template) => {
+              if (err2) {
+                res.writeHead(500, { 'Content-Type': 'text/html; charset=utf-8' });
+                res.end('錯誤：無法讀取模板文件 - ' + err2.message);
+                return;
+              }
+              const html = ejs.render(template);
+              res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+              res.end(html);
+            });
       } else {
         // ------------------------------------------
         // 靜態文件讀取成功 → 直接發送文件內容
